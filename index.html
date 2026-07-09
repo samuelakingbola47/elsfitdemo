@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL'S FIT ACCOUTER — Tailored Elegance for the Modern Man</title>
+<meta name="description" content="EL'S FIT ACCOUTER — premium bespoke menswear. Agbada, Kaftans, Aso-Oke, Suits, Esiki Rebrand, Baggy Pants, Shoes & Accessories. Your go-to choice for maximum elegance.">
+<link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+<style>
+/* ===================================================================
+   EL'S FIT ACCOUTER — Design tokens
+   Ink / Stone / Rust / Olive / Bone — brand-derived palette
+=================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#1a1a1a;
+  --ink-soft:#1c1c1c;
+  --charcoal:#3a3a3a;
+  --ash:#6f6f6f;
+  --line:#d8d0c8;
+  --stone:#f2ece6;
+  --stone-deep:#e8ded3;
+  --bone:#fff8f5;
+  --rust:#d95c2e;
+  --rust-deep:#b8461f;
+  --olive:#576c41;
+  --olive-deep:#414f31;
+
+  --display:"Cormorant Garamond", serif;
+  --body:"Jost", sans-serif;
+
+  --ease:cubic-bezier(.16,.84,.44,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--body);
+  background:var(--stone);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+ul{list-style:none;margin:0;padding:0;}
+h1,h2,h3,h4{margin:0;font-weight:400;}
+p{margin:0;}
+.container{max-width:1240px;margin:0 auto;padding:0 32px;}
+@media(max-width:640px){.container{padding:0 20px;}}
+
+::selection{background:var(--rust);color:var(--bone);}
+
+/* Focus visibility */
+a:focus-visible,button:focus-visible{outline:2px solid var(--rust);outline-offset:3px;}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important;}
+}
+
+/* ---------- eyebrow / label pattern ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--rust);display:inline-block;}
+
+/* ---------- fold divider — signature motif from the mark ---------- */
+.fold{
+  display:flex;flex-direction:column;align-items:center;gap:4px;width:34px;margin:0 auto;
+}
+.fold i{
+  display:block;height:5px;background:var(--rust);
+  clip-path:polygon(14% 0,100% 0,86% 100%,0% 100%);
+}
+.fold i:nth-child(1){width:34px;}
+.fold i:nth-child(2){width:20px; clip-path:polygon(0 0, 82% 0, 100% 100%, 18% 100%); transform:translateX(2px);}
+.fold i:nth-child(3){width:34px;}
+
+.fold-lg i{height:8px;}
+.fold-lg i:nth-child(1){width:56px;}
+.fold-lg i:nth-child(2){width:32px;}
+.fold-lg i:nth-child(3){width:56px;}
+
+/* trapezoid image clip echoing the mark's cut edge */
+.trap-clip{
+  clip-path:polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
+}
+.trap-clip-r{
+  clip-path:polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+}
+
+/* =========================== HEADER =========================== */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 32px;
+  transition:background .4s var(--ease), padding .4s var(--ease), border-color .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{
+  background:rgba(242,236,230,.92);
+  backdrop-filter:blur(10px);
+  padding:12px 32px;
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-lockup{height:64px;width:auto;transition:height .4s var(--ease);}
+.site-header.scrolled .brand-lockup{height:50px;}
+
+.main-nav{display:flex;align-items:center;gap:38px;}
+.main-nav a{
+  font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  position:relative;padding:4px 0;color:var(--ink);
+}
+.main-nav a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--rust);
+  transition:width .3s var(--ease);
+}
+.main-nav a:hover::after,.main-nav a.active::after{width:100%;}
+.main-nav a.active{color:var(--rust-deep);}
+
+.header-actions{display:flex;align-items:center;gap:16px;}
+.icon-btn{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;background:transparent;
+  transition:background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease);
+}
+.icon-btn:hover{background:var(--ink);color:var(--stone);transform:translateY(-2px);}
+.icon-btn svg{width:17px;height:17px;}
+.burger{display:none;}
+
+@media(max-width:980px){
+  .main-nav{display:none;}
+  .burger{display:flex;}
+  .header-actions .whatsapp-desktop{display:none;}
+}
+@media(max-width:640px){
+  .site-header{padding:14px 20px;}
+  .brand-lockup{height:46px;}
+  .site-header.scrolled .brand-lockup{height:38px;}
+}
+
+/* =========================== OFF-CANVAS MENU =========================== */
+.backdrop{
+  position:fixed;inset:0;background:rgba(13,13,13,.55);z-index:290;
+  opacity:0;pointer-events:none;transition:opacity .45s var(--ease);
+}
+.backdrop.open{opacity:1;pointer-events:auto;}
+
+.offcanvas{
+  position:fixed;top:0;right:0;bottom:0;width:min(400px,86vw);z-index:300;
+  background:var(--rust) url('assets/logo/offcanvas-bg.jpg') no-repeat center 30%;
+  background-size:cover;
+  transform:translateX(100%);
+  transition:transform .55s var(--ease);
+  display:flex;flex-direction:column;
+  padding:28px 32px 40px;
+  color:var(--bone);
+}
+.offcanvas::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,.55) 38%, rgba(26,26,26,.93) 72%, rgba(26,26,26,.98) 100%);
+  pointer-events:none;
+}
+.offcanvas.open{transform:translateX(0);}
+.offcanvas-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2;}
+.offcanvas-top .brand-lockup{height:38px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0,0,0,.35));}
+.offcanvas-close{
+  width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;background:transparent;color:var(--bone);
+  transition:transform .3s var(--ease), background .3s var(--ease);
+}
+.offcanvas-close:hover{background:rgba(255,255,255,.12);transform:rotate(90deg);}
+.offcanvas-nav{position:relative;z-index:2;margin-top:auto;margin-bottom:auto;display:flex;flex-direction:column;gap:6px;}
+.offcanvas-nav a{
+  font-family:var(--display);font-size:clamp(30px,9vw,42px);letter-spacing:.01em;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12);
+  opacity:0;transform:translateY(14px);
+  transition:transform .5s var(--ease), opacity .5s var(--ease), color .3s var(--ease), padding-left .3s var(--ease);
+}
+.offcanvas.open .offcanvas-nav a{opacity:1;transform:translateY(0);}
+.offcanvas-nav a:hover{color:var(--rust);padding-left:10px;}
+.offcanvas-nav a span{font-family:var(--body);font-size:12px;color:var(--rust);margin-right:14px;letter-spacing:.1em;}
+
+.offcanvas-foot{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;}
+.offcanvas-social{display:flex;gap:14px;}
+.offcanvas-social a{
+  width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:background .3s,border-color .3s;
+}
+.offcanvas-social a:hover{background:var(--rust);border-color:var(--rust);}
+.offcanvas-foot .oc-line{font-size:12px;color:rgba(255,248,245,.6);letter-spacing:.04em;}
+
+/* stagger delays */
+.offcanvas-nav a:nth-child(1){transition-delay:.05s;}
+.offcanvas-nav a:nth-child(2){transition-delay:.11s;}
+.offcanvas-nav a:nth-child(3){transition-delay:.17s;}
+.offcanvas-nav a:nth-child(4){transition-delay:.23s;}
+
+/* =========================== VIEWS (SPA) =========================== */
+.view{display:none;}
+.view.active{display:block;animation:viewIn .6s var(--ease);}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* =========================== HERO =========================== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 0 80px;overflow:hidden;
+  background:var(--stone);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;width:100%;
+}
+.hero-eyebrow{margin-bottom:22px;}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(40px,6.6vw,84px);
+  line-height:1.02;letter-spacing:.005em;
+  text-transform:uppercase;
+}
+.hero h1 em{font-style:normal;color:var(--rust);}
+.hero p.lede{
+  margin-top:26px;max-width:460px;font-size:17px;line-height:1.7;color:var(--charcoal);
+}
+.hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 30px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;position:relative;overflow:hidden;z-index:1;
+  transition:color .35s var(--ease), border-color .35s var(--ease);
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.btn-solid{background:var(--ink);color:var(--bone);border:1px solid var(--ink);}
+.btn-solid::before{background:var(--rust);}
+.btn-solid:hover::before{transform:scaleX(1);}
+.btn-outline{border:1px solid var(--ink);color:var(--ink);}
+.btn-outline::before{background:var(--ink);}
+.btn-outline:hover{color:var(--bone);}
+.btn-outline:hover::before{transform:scaleX(1);}
+.btn-rust{background:var(--rust);color:var(--bone);border:1px solid var(--rust);}
+.btn-rust::before{background:var(--ink);}
+.btn-rust:hover::before{transform:scaleX(1);}
+.btn svg{width:16px;height:16px;flex-shrink:0;}
+
+.hero-mark{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.hero-mark img{
+  width:min(78%,380px);
+  animation:markFloat 7s ease-in-out infinite;
+  filter:drop-shadow(0 30px 40px rgba(13,13,13,.18));
+}
+.hero-mark::after{
+  content:"";position:absolute;width:120%;height:120%;border:1px solid var(--line);border-radius:50%;
+  animation:spin 60s linear infinite;
+}
+.hero-mark::before{
+  content:"";position:absolute;width:90%;height:90%;border:1px dashed var(--line);border-radius:50%;
+  animation:spin 40s linear infinite reverse;
+}
+@keyframes markFloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-16px) rotate(3deg);}}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+.scroll-cue{
+  position:absolute;left:32px;bottom:34px;display:flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);
+}
+.scroll-cue .bar{width:1px;height:34px;background:var(--ash);position:relative;overflow:hidden;}
+.scroll-cue .bar::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--rust);animation:scrollcue 1.8s ease-in-out infinite;}
+@keyframes scrollcue{0%{top:-100%;}60%{top:100%;}100%{top:100%;}}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;text-align:left;}
+  .hero-mark{order:-1;margin-bottom:10px;}
+  .hero-mark img{width:180px;}
+  .hero{padding-top:120px;}
+}
+
+/* =========================== MARQUEE =========================== */
+.marquee-strip{
+  background:var(--ink);color:var(--bone);overflow:hidden;white-space:nowrap;
+  padding:16px 0;border-top:1px solid var(--rust);border-bottom:1px solid var(--rust);
+}
+.marquee-track{display:inline-flex;animation:marquee 32s linear infinite;}
+.marquee-track span{
+  font-family:var(--display);font-size:18px;letter-spacing:.06em;text-transform:uppercase;
+  padding:0 28px;display:inline-flex;align-items:center;gap:28px;
+}
+.marquee-track span::after{content:"";width:7px;height:7px;background:var(--rust);display:inline-block;transform:rotate(45deg);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* =========================== REVEAL ANIMATION =========================== */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+.reveal-stagger > *{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal-stagger > *:nth-child(1){transition-delay:.05s;}
+.reveal-stagger > *:nth-child(2){transition-delay:.13s;}
+.reveal-stagger > *:nth-child(3){transition-delay:.21s;}
+.reveal-stagger > *:nth-child(4){transition-delay:.29s;}
+.reveal-stagger > *:nth-child(5){transition-delay:.37s;}
+.reveal-stagger > *:nth-child(6){transition-delay:.45s;}
+.reveal-stagger > *:nth-child(7){transition-delay:.53s;}
+
+/* =========================== SECTION SHELL =========================== */
+section{padding:110px 0;}
+.section-head{max-width:640px;margin-bottom:60px;}
+.section-head h2{
+  font-family:var(--display);font-size:clamp(32px,4.4vw,52px);text-transform:uppercase;margin-top:16px;line-height:1.06;
+}
+.section-head h2 em{font-style:normal;color:var(--rust);}
+.section-head p{margin-top:18px;font-size:16px;line-height:1.7;color:var(--charcoal);max-width:520px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+
+@media(max-width:640px){section{padding:70px 0;}}
+
+/* =========================== ABOUT TEASER (home) =========================== */
+.about-teaser{background:var(--bone);}
+.teaser-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;}
+.teaser-figure{position:relative;}
+.teaser-figure img{width:100%;height:560px;object-fit:cover;}
+.teaser-figure .fold{position:absolute;top:-18px;left:50%;transform:translateX(-50%);}
+.teaser-text .eyebrow{margin-bottom:18px;}
+.teaser-text h2{font-family:var(--display);font-size:clamp(28px,3.6vw,42px);text-transform:uppercase;line-height:1.12;margin-bottom:22px;}
+.teaser-text p{font-size:16px;line-height:1.85;color:var(--charcoal);margin-bottom:18px;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:36px;background:var(--line);}
+.stat-box{background:var(--bone);padding:22px 6px;text-align:center;}
+.stat-box b{display:block;font-family:var(--display);font-size:30px;color:var(--rust);}
+.stat-box span{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-top:6px;}
+
+@media(max-width:900px){.teaser-grid{grid-template-columns:1fr;gap:40px;}.teaser-figure img{height:380px;}}
+
+/* =========================== CATEGORY GRID =========================== */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.cat-card{
+  position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--ink);
+  cursor:pointer;
+}
+.cat-card img{
+  width:100%;height:100%;object-fit:cover;object-position:top;
+  transition:transform .7s var(--ease), filter .5s var(--ease);
+  filter:grayscale(15%);
+}
+.cat-card:hover img{transform:scale(1.08);filter:grayscale(0%);}
+.cat-card .overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(13,13,13,0) 35%, rgba(13,13,13,.85) 100%);
+}
+.cat-card .cat-info{
+  position:absolute;left:0;right:0;bottom:0;padding:22px;color:var(--bone);
+}
+.cat-card .cat-info .eyebrow{color:var(--rust);margin-bottom:8px;}
+.cat-card .cat-info h3{font-family:var(--display);font-size:22px;text-transform:uppercase;}
+.cat-card .cat-info .explore{
+  display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  margin-top:10px;opacity:0;transform:translateY(8px);transition:all .4s var(--ease);color:var(--bone);
+}
+.cat-card:hover .cat-info .explore{opacity:1;transform:translateY(0);}
+.cat-card .cat-info .explore svg{width:14px;height:14px;transition:transform .3s var(--ease);}
+.cat-card:hover .cat-info .explore svg{transform:translateX(4px);}
+
+@media(max-width:1000px){.cat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.cat-grid{grid-template-columns:1fr 1fr;gap:12px;}.cat-card .cat-info h3{font-size:15px;}.cat-card .cat-info{padding:12px;}}
+
+/* =========================== VALUES / PROCESS =========================== */
+.value-band{background:var(--ink);color:var(--bone);}
+.value-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);}
+.value-card{background:var(--ink);padding:40px 30px;}
+.value-card svg{width:30px;height:30px;color:var(--rust);margin-bottom:22px;}
+.value-card h3{font-family:var(--display);font-size:18px;text-transform:uppercase;margin-bottom:12px;letter-spacing:.02em;}
+.value-card p{font-size:14px;line-height:1.7;color:rgba(255,248,245,.68);}
+@media(max-width:900px){.value-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.value-grid{grid-template-columns:1fr;}}
+
+/* =========================== CUSTOM FIT CTA =========================== */
+.custom-cta{
+  background:var(--olive);color:var(--bone);position:relative;overflow:hidden;
+}
+.custom-cta .container{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;z-index:2;}
+.custom-cta img.mark-bg{
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:340px;opacity:.14;z-index:1;
+}
+.custom-cta h2{font-family:var(--display);font-size:clamp(26px,3.4vw,40px);text-transform:uppercase;max-width:560px;line-height:1.15;}
+.custom-cta p{margin-top:14px;font-size:15px;color:rgba(255,248,245,.8);max-width:480px;}
+.custom-cta .btn-outline{border-color:var(--bone);color:var(--bone);}
+.custom-cta .btn-outline::before{background:var(--bone);}
+.custom-cta .btn-outline:hover{color:var(--olive-deep);}
+
+/* =========================== SHOP =========================== */
+.shop-hero{
+  padding:150px 0 50px;background:var(--stone);
+}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px;}
+.filter-btn{
+  padding:10px 20px;border:1px solid var(--ink);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);transition:all .3s var(--ease);border-radius:2px;
+}
+.filter-btn:hover{border-color:var(--rust);color:var(--rust);}
+.filter-btn.active{background:var(--ink);color:var(--bone);border-color:var(--ink);}
+
+.product-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px;padding:60px 0 110px;
+}
+.product-card{cursor:pointer;}
+.product-card .thumb{aspect-ratio:3/4;overflow:hidden;background:var(--stone-deep);position:relative;}
+.product-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.product-card:hover .thumb img{transform:scale(1.06);}
+.product-card .thumb .zoom-hint{
+  position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;
+  background:var(--bone);display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.7);transition:all .35s var(--ease);
+}
+.product-card:hover .thumb .zoom-hint{opacity:1;transform:scale(1);}
+.product-card .zoom-hint svg{width:15px;height:15px;}
+.product-card .meta{padding-top:14px;}
+.product-card .meta .eyebrow{font-size:10px;margin-bottom:6px;}
+.product-card .meta h4{font-family:var(--display);font-size:16px;text-transform:uppercase;letter-spacing:.02em;}
+.product-card .meta .enquire{font-size:12px;color:var(--ash);margin-top:4px;}
+
+@media(max-width:1000px){.product-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:700px){.product-grid{grid-template-columns:repeat(2,1fr);gap:18px 14px;}}
+@media(max-width:640px){.shop-hero{padding-top:120px;}}
+
+/* Product modal */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(13,13,13,.72);z-index:400;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.modal-backdrop.open{opacity:1;pointer-events:auto;}
+.modal-box{
+  background:var(--bone);max-width:900px;width:100%;max-height:88vh;overflow:auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  transform:scale(.94) translateY(20px);opacity:0;transition:all .45s var(--ease);
+}
+.modal-backdrop.open .modal-box{transform:scale(1) translateY(0);opacity:1;}
+.modal-img{background:var(--stone-deep);}
+.modal-img img{width:100%;height:100%;object-fit:cover;min-height:320px;}
+.modal-info{padding:44px 40px;position:relative;}
+.modal-close{
+  position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;border:1px solid var(--ink);
+  display:flex;align-items:center;justify-content:center;background:transparent;transition:all .3s var(--ease);
+}
+.modal-close:hover{background:var(--ink);color:var(--bone);transform:rotate(90deg);}
+.modal-info .eyebrow{margin-bottom:16px;}
+.modal-info h3{font-family:var(--display);font-size:28px;text-transform:uppercase;margin-bottom:16px;}
+.modal-info p.desc{font-size:15px;line-height:1.8;color:var(--charcoal);margin-bottom:26px;}
+.modal-info .price-note{
+  font-size:13px;color:var(--ash);padding:14px 16px;border:1px dashed var(--line);margin-bottom:26px;
+}
+.modal-info .modal-actions{display:flex;flex-direction:column;gap:12px;}
+@media(max-width:760px){.modal-box{grid-template-columns:1fr;}.modal-img img{min-height:260px;}.modal-info{padding:32px 24px;}}
+
+/* =========================== ABOUT PAGE =========================== */
+.page-hero{
+  padding:150px 0 70px;position:relative;background:var(--ink);color:var(--bone);overflow:hidden;
+}
+.page-hero .container{position:relative;z-index:2;}
+.page-hero img.mark-bg{position:absolute;top:50%;right:-8%;transform:translateY(-50%);width:420px;opacity:.08;z-index:1;}
+.page-hero .eyebrow{color:var(--rust);}
+.page-hero h1{font-family:var(--display);font-size:clamp(38px,6vw,64px);text-transform:uppercase;margin-top:16px;max-width:760px;line-height:1.06;}
+.page-hero p{margin-top:20px;max-width:520px;font-size:16px;color:rgba(255,248,245,.75);line-height:1.8;}
+
+.story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:70px;align-items:center;}
+.story-figs{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.story-figs img{width:100%;height:300px;object-fit:cover;}
+.story-figs .f2{margin-top:44px;}
+.story-text .eyebrow{margin-bottom:18px;}
+.story-text h2{font-family:var(--display);font-size:clamp(28px,3.6vw,42px);text-transform:uppercase;margin-bottom:24px;line-height:1.14;}
+.story-text p{font-size:16px;line-height:1.9;color:var(--charcoal);margin-bottom:18px;}
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;gap:36px;}.story-figs .f2{margin-top:0;}.story-figs img{height:220px;}}
+
+.process-strip{background:var(--stone-deep);}
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.process-row::before{content:"";position:absolute;top:20px;left:0;right:0;height:1px;background:var(--line);z-index:0;}
+.process-step{position:relative;z-index:1;padding-right:24px;}
+.process-step .dot{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bone);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:15px;margin-bottom:22px;}
+.process-step h4{font-family:var(--display);font-size:17px;text-transform:uppercase;margin-bottom:10px;}
+.process-step p{font-size:14px;line-height:1.7;color:var(--charcoal);}
+@media(max-width:900px){.process-row{grid-template-columns:1fr 1fr;gap:36px 20px;}.process-row::before{display:none;}}
+@media(max-width:560px){.process-row{grid-template-columns:1fr;}}
+
+.values-list{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+.values-item{background:var(--bone);padding:36px;}
+.values-item h4{font-family:var(--display);font-size:19px;text-transform:uppercase;margin-bottom:12px;color:var(--rust-deep);}
+.values-item p{font-size:14.5px;line-height:1.75;color:var(--charcoal);}
+@media(max-width:700px){.values-list{grid-template-columns:1fr;}}
+
+/* =========================== CONTACT PAGE =========================== */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;}
+.contact-card{background:var(--ink);color:var(--bone);padding:46px 40px;position:relative;overflow:hidden;}
+.contact-card img.mark-bg{position:absolute;bottom:-40px;right:-40px;width:220px;opacity:.10;}
+.contact-card h3{font-family:var(--display);font-size:24px;text-transform:uppercase;margin-bottom:30px;position:relative;z-index:1;}
+.c-row{display:flex;gap:16px;margin-bottom:26px;position:relative;z-index:1;}
+.c-row svg{width:20px;height:20px;color:var(--rust);flex-shrink:0;margin-top:2px;}
+.c-row .c-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,248,245,.55);margin-bottom:4px;}
+.c-row .c-value{font-size:15.5px;line-height:1.6;}
+.c-row a.c-value:hover{color:var(--rust);}
+
+.contact-form{background:var(--bone);padding:46px 40px;border:1px solid var(--line);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.field{margin-bottom:22px;}
+.field label{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);margin-bottom:8px;}
+.field input,.field select,.field textarea{
+  width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;
+  padding:10px 2px;font-family:var(--body);font-size:15px;color:var(--ink);transition:border-color .3s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--rust);outline:none;}
+.field textarea{resize:vertical;min-height:100px;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+
+.map-embed{margin-top:26px;border:1px solid var(--line);}
+.map-embed iframe{width:100%;height:280px;border:0;display:block;filter:grayscale(35%) contrast(1.05);}
+
+/* =========================== FOOTER =========================== */
+footer{background:var(--ink);color:rgba(255,248,245,.7);padding:80px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:50px;}
+.footer-brand p{font-size:14px;line-height:1.8;max-width:280px;color:rgba(255,248,245,.55);}
+.footer-col h5{font-family:var(--display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);margin-bottom:20px;}
+.footer-col ul li{margin-bottom:12px;}
+.footer-col a{font-size:14px;color:rgba(255,248,245,.6);transition:color .3s;}
+.footer-col a:hover{color:var(--rust);}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(255,248,245,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.footer-social a:hover{background:var(--rust);border-color:var(--rust);}
+.footer-social svg{width:15px;height:15px;}
+.footer-bottom{
+  margin-top:60px;padding-top:26px;border-top:1px solid rgba(255,248,245,.12);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,248,245,.45);
+}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+
+/* =========================== FLOATING WHATSAPP =========================== */
+.float-wa{
+  position:fixed;right:26px;bottom:26px;z-index:250;
+  width:58px;height:58px;border-radius:50%;background:var(--olive);color:var(--bone);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(13,13,13,.3);
+  animation:pulseWa 2.6s ease-in-out infinite;
+  transition:transform .3s var(--ease), background .3s;
+}
+.float-wa:hover{transform:scale(1.08);background:var(--olive-deep);}
+.float-wa svg{width:26px;height:26px;}
+@keyframes pulseWa{0%,100%{box-shadow:0 10px 30px rgba(13,13,13,.3),0 0 0 0 rgba(87,108,65,.5);}50%{box-shadow:0 10px 30px rgba(13,13,13,.3),0 0 0 12px rgba(87,108,65,0);}}
+@media(max-width:640px){.float-wa{width:52px;height:52px;right:18px;bottom:18px;}.float-wa svg{width:23px;height:23px;}}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:var(--bone);padding:14px 26px;border-radius:2px;font-size:13px;
+  z-index:500;opacity:0;pointer-events:none;transition:all .4s var(--ease);letter-spacing:.02em;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <a href="#home" class="brand" data-link data-view="home">
+    <img src="assets/logo/lockup-black.png" alt="El's Fit Accouter" class="brand-lockup">
+  </a>
+  <nav class="main-nav">
+    <a href="#home" data-link data-view="home" class="active">Home</a>
+    <a href="#about" data-link data-view="about">About</a>
+    <a href="#shop" data-link data-view="shop">Shop</a>
+    <a href="#contact" data-link data-view="contact">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <a class="icon-btn whatsapp-desktop" href="https://wa.me/2348142704877?text=Hello%20El's%20Fit%20Accouter%2C%20I'd%20like%20to%20enquire%20about%20a%20custom%20order." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/><path d="M8.5 9.2c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.2.2-.3.3-.1.6.2.4.9 1.4 1.9 2.2 1.3 1 2.3 1.3 2.7 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3 0 .2 0 .9-.3 1.4-.3.5-1.5 1.1-2.1 1.1-.6 0-1.9-.1-3.9-1.5-2.4-1.7-3.9-4-4-4.2-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.9Z" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <button class="icon-btn burger" id="burgerBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ OFF-CANVAS MENU ============ -->
+<div class="backdrop" id="backdrop"></div>
+<div class="offcanvas" id="offcanvas">
+  <div class="offcanvas-top">
+    <div class="brand"><img src="assets/logo/lockup-black.png" alt="El's Fit Accouter" class="brand-lockup"></div>
+    <button class="offcanvas-close" id="offcanvasClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <nav class="offcanvas-nav">
+    <a href="#home" data-link data-view="home"><span>01</span>Home</a>
+    <a href="#about" data-link data-view="about"><span>02</span>About</a>
+    <a href="#shop" data-link data-view="shop"><span>03</span>Shop</a>
+    <a href="#contact" data-link data-view="contact"><span>04</span>Contact</a>
+  </nav>
+  <div class="offcanvas-foot">
+    <div class="offcanvas-social">
+      <a href="https://www.instagram.com/james_el_fit" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff8f5" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+      <a href="https://wa.me/2348142704877" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff8f5" stroke-width="1.8"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/></svg>
+      </a>
+    </div>
+    <div class="oc-line">Mon – Sat, 9am – 7pm · Ogbomoso, Oyo State</div>
+  </div>
+</div>
+
+<!-- ============ HOME VIEW ============ -->
+<main>
+<section class="view active" id="view-home">
+
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow hero-eyebrow">El's Fit Accouter — Menswear</div>
+        <h1>Your Go-To Choice<br>for <em>Maximum</em><br>Elegance</h1>
+        <p class="lede">Agbada, kaftans, aso-oke, suits and tailored accessories — cut and finished for the man who dresses with intention. Made to order. Fitted to you.</p>
+        <div class="hero-cta">
+          <a href="#shop" data-link data-view="shop" class="btn btn-solid">Explore The Shop
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://wa.me/2348142704877?text=Hello%20El's%20Fit%20Accouter%2C%20I'd%20like%20to%20book%20a%20custom%20fit." target="_blank" rel="noopener" class="btn btn-outline">Book A Custom Fit</a>
+        </div>
+      </div>
+      <div class="hero-mark">
+        <img src="assets/logo/mark-orange.png" alt="El's Fit Accouter crest">
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="bar"></span>Scroll</div>
+  </div>
+
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Agbada</span><span>Kaftans</span><span>Aso-Oke</span><span>Suits</span><span>Esiki Rebrand</span><span>Baggy Pants</span><span>Shoes &amp; Accessories</span>
+      <span>Agbada</span><span>Kaftans</span><span>Aso-Oke</span><span>Suits</span><span>Esiki Rebrand</span><span>Baggy Pants</span><span>Shoes &amp; Accessories</span>
+    </div>
+  </div>
+
+  <section class="about-teaser">
+    <div class="container teaser-grid">
+      <div class="teaser-figure reveal">
+        <img src="assets/images/agbada-1.jpg" alt="Tailored agbada by El's Fit Accouter">
+        <div class="fold fold-lg"><i></i><i></i><i></i></div>
+      </div>
+      <div class="teaser-text reveal">
+        <div class="eyebrow">The House</div>
+        <h2>Tailoring Built On <em style="color:var(--rust);font-style:normal;">Precision</em></h2>
+        <p>El's Fit Accouter is a made-to-order menswear house working across traditional and contemporary silhouettes — agbada, kaftans and aso-oke alongside structured suits, waistcoats and tailored trousers.</p>
+        <p>Every order starts with a conversation about fabric, fit and occasion, and ends with a piece cut for your frame, not off a rack.</p>
+        <a href="#about" data-link data-view="about" class="btn btn-outline" style="margin-top:10px;">Our Story
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <div class="stat-row">
+          <div class="stat-box"><b>7</b><span>Signature Lines</span></div>
+          <div class="stat-box"><b>100%</b><span>Made To Order</span></div>
+          <div class="stat-box"><b>1:1</b><span>Custom Fit</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">Shop By Category</div>
+        <h2>Our <em>Collections</em></h2>
+        <p>Seven signature lines, one standard of finish. Tap a category to view the full edit.</p>
+      </div>
+      <div class="cat-grid reveal-stagger" id="homeCatGrid"></div>
+    </div>
+  </section>
+
+  <section class="value-band">
+    <div class="container">
+      <div class="section-head reveal" style="color:var(--bone);">
+        <div class="eyebrow">Why El's Fit</div>
+        <h2>The <em>Standard</em> We Hold</h2>
+      </div>
+    </div>
+    <div class="container" style="padding:0;">
+      <div class="value-grid reveal-stagger">
+        <div class="value-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v6H4zM4 14h10v6H4z"/></svg>
+          <h3>Premium Fabric</h3>
+          <p>Sourced material, chosen piece by piece for drape, weight and how it wears through a Nigerian day.</p>
+        </div>
+        <div class="value-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l9-3 9 3M4 8v9M20 8v9M4 21h16"/></svg>
+          <h3>Precision Tailoring</h3>
+          <p>Every seam and silhouette finished by hand-checked craftsmanship — nothing leaves the atelier unreviewed.</p>
+        </div>
+        <div class="value-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          <h3>Custom Fit</h3>
+          <p>Unsure of your measurements? Message us on WhatsApp and we'll walk you through it, no guesswork.</p>
+        </div>
+        <div class="value-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l4-7h10l4 7M3 12v7h18v-7M3 12h18"/></svg>
+          <h3>Nationwide Delivery</h3>
+          <p>Orders dispatched from our Ogbomoso atelier to anywhere in Nigeria, with pickup available in-store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-cta">
+    <img src="assets/logo/mark-white.png" class="mark-bg" alt="">
+    <div class="container">
+      <div>
+        <h2>Not Sure Of Your Measurements?</h2>
+        <p>Send us a message on WhatsApp — we'll guide you through a simple at-home measuring process, or book a fitting at our Ogbomoso atelier.</p>
+      </div>
+      <a href="https://wa.me/2348142704877?text=Hello%2C%20I'm%20not%20sure%20of%20my%20measurements%20and%20would%20like%20some%20guidance." target="_blank" rel="noopener" class="btn btn-outline">Chat On WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/></svg>
+      </a>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============ ABOUT VIEW ============ -->
+<section class="view" id="view-about">
+  <div class="page-hero">
+    <img src="assets/logo/mark-white.png" class="mark-bg" alt="">
+    <div class="container">
+      <div class="eyebrow">About El's Fit Accouter</div>
+      <h1>A Legacy Of Elegance &amp; Sophistication</h1>
+      <p>Founded by Olaniyi Odebisi, El's Fit Accouter exists to be the go-to choice for individuals seeking elegance, sophistication and functionality in their attire.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container story-grid">
+      <div class="story-figs reveal">
+        <img src="assets/images/suits-1.jpg" alt="Tailored suit detail" class="trap-clip">
+        <img src="assets/images/kaftans-1.jpg" alt="Kaftan detail" class="f2 trap-clip-r">
+      </div>
+      <div class="story-text reveal">
+        <div class="eyebrow">Our Story</div>
+        <h2>From A Quantity Surveyor <em style="color:var(--rust);font-style:normal;">To A Fashion Guru</em></h2>
+        <p>El's Fit Accouter was born from the personal journey of founder Olaniyi Odebisi — a quantity surveyor turned fashion guru, raised from a lineage of fashion designers and exposed to the craft from childhood.</p>
+        <p>Through countless interactions with clients, high-powered meetings and social functions, Olaniyi recognised that most individuals lacked the blend of elegance, comfort and functionality needed to truly support a discerning presence. El's Fit Accouter was conceived to fill that gap.</p>
+        <p>Today, working from our atelier in Ogbomoso, Oyo State, we cut agbada and aso-oke alongside structured suits and contemporary silhouettes — treating heritage fabric and modern tailoring as one discipline, not two different wardrobes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--bone);">
+    <div class="container">
+      <div class="section-head reveal center" style="max-width:760px;">
+        <div class="eyebrow">Vision &amp; Mission</div>
+        <h2>Why We <em>Exist</em></h2>
+      </div>
+      <div class="values-list reveal-stagger" style="max-width:980px;margin:0 auto;">
+        <div class="values-item">
+          <h4>Our Vision</h4>
+          <p>To be the leading provider of luxury apparel for individuals, combining elegance, sophistication and functionality to enhance their individual presence.</p>
+        </div>
+        <div class="values-item">
+          <h4>Our Mission</h4>
+          <p>To deliver high-quality, timeless and stylish apparel that empowers individuals to express their confidence and success in their social spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-strip">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">How We Work</div>
+        <h2>From <em>Consultation</em> To Doorstep</h2>
+      </div>
+      <div class="process-row reveal-stagger">
+        <div class="process-step">
+          <div class="dot">01</div>
+          <h4>Consultation</h4>
+          <p>Tell us the occasion, the silhouette and the fabric you have in mind — in person or over WhatsApp.</p>
+        </div>
+        <div class="process-step">
+          <div class="dot">02</div>
+          <h4>Measurement</h4>
+          <p>Visit the atelier for a fitting, or send your measurements with our simple guided WhatsApp process.</p>
+        </div>
+        <div class="process-step">
+          <div class="dot">03</div>
+          <h4>Craft</h4>
+          <p>Your piece is cut, tailored and quality-checked by hand before it ever leaves our workroom.</p>
+        </div>
+        <div class="process-step">
+          <div class="dot">04</div>
+          <h4>Delivery</h4>
+          <p>Collect in-store in Ogbomoso, or have it delivered wherever you are in Nigeria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="eyebrow">What We Stand For</div>
+        <h2>Our <em>Values</em></h2>
+      </div>
+      <div class="values-list reveal-stagger">
+        <div class="values-item">
+          <h4>Quality</h4>
+          <p>Commitment to superior craftsmanship and premium materials, sourced from around the globe.</p>
+        </div>
+        <div class="values-item">
+          <h4>Sophistication</h4>
+          <p>An emphasis on elegant, timeless designs that carry you from the boardroom to after-work events.</p>
+        </div>
+        <div class="values-item">
+          <h4>Functionality</h4>
+          <p>Ensuring comfort and practicality in every design, so luxury never comes at the cost of ease.</p>
+        </div>
+        <div class="values-item">
+          <h4>Exclusivity</h4>
+          <p>Offering limited pieces and a personalised service — bespoke tailoring built around you, not a rack.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:60px;max-width:720px;padding:36px 40px;border-left:3px solid var(--rust);background:var(--stone-deep);">
+        <p style="font-family:var(--display);font-size:22px;font-style:italic;line-height:1.5;color:var(--ink);">"For the discerning individual, El's Fit offers unparalleled luxury and sophistication, elevating your personal style to new heights."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom-cta">
+    <img src="assets/logo/mark-white.png" class="mark-bg" alt="">
+    <div class="container">
+      <div>
+        <h2>Ready To Start Your Order?</h2>
+        <p>Browse the shop for style inspiration, then reach out to bring it to life in your size and fabric of choice.</p>
+      </div>
+      <a href="#shop" data-link data-view="shop" class="btn btn-outline">View The Shop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+</section>
+
+<!-- ============ SHOP VIEW ============ -->
+<section class="view" id="view-shop">
+  <div class="shop-hero">
+    <div class="container">
+      <div class="eyebrow">The Shop</div>
+      <h1 style="font-family:var(--display);font-size:clamp(34px,5.4vw,58px);text-transform:uppercase;margin-top:14px;">Browse The <em style="color:var(--rust);font-style:normal;">Edit</em></h1>
+      <p style="margin-top:16px;max-width:560px;font-size:15.5px;line-height:1.8;color:var(--charcoal);">Every piece shown is made to order in your size and preferred fabric. Tap any style to view it closer, then enquire directly on WhatsApp — online checkout is coming soon.</p>
+      <div class="filter-row" id="filterRow"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT VIEW ============ -->
+<section class="view" id="view-contact">
+  <div class="page-hero">
+    <img src="assets/logo/mark-white.png" class="mark-bg" alt="">
+    <div class="container">
+      <div class="eyebrow">Get In Touch</div>
+      <h1>Let's Tailor<br>Something Together</h1>
+      <p>Questions about fit, fabric or a custom order — our team responds fastest on WhatsApp.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container contact-grid">
+      <div class="contact-card reveal">
+        <img src="assets/logo/mark-white.png" class="mark-bg" alt="">
+        <h3>Reach Us Directly</h3>
+        <div class="c-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/></svg>
+          <div><div class="c-label">Phone / WhatsApp</div><a class="c-value" href="https://wa.me/2348142704877" target="_blank" rel="noopener">+234 814 270 4877</a></div>
+        </div>
+        <div class="c-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
+          <div><div class="c-label">Email</div><a class="c-value" href="mailto:odebisijamesolaniyi@gmail.com">odebisijamesolaniyi@gmail.com</a></div>
+        </div>
+        <div class="c-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div><div class="c-label">Atelier Address</div><span class="c-value">No 11, Samuel Oyelakin's House, adjacent High Court of Justice, Oke Ado, Ogbomoso, Oyo State</span></div>
+        </div>
+        <div class="c-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          <div><div class="c-label">Instagram</div><a class="c-value" href="https://www.instagram.com/james_el_fit" target="_blank" rel="noopener">@james_el_fit</a></div>
+        </div>
+        <div class="c-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <div><div class="c-label">Business Hours</div><span class="c-value">Monday – Saturday, 9am – 7pm</span></div>
+        </div>
+        <div class="map-embed">
+          <iframe loading="lazy" src="https://www.google.com/maps?q=High+Court+of+Justice+Oke+Ado+Ogbomoso+Oyo+State&output=embed"></iframe>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <h3 style="font-family:var(--display);font-size:24px;text-transform:uppercase;margin-bottom:8px;">Send A Message</h3>
+        <p style="font-size:14px;color:var(--ash);margin-bottom:30px;">Fill this in and we'll open it as a WhatsApp message ready to send — or email us directly above.</p>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field"><label>Full Name</label><input type="text" id="cf-name" required></div>
+            <div class="field"><label>Phone Number</label><input type="tel" id="cf-phone" required></div>
+          </div>
+          <div class="field">
+            <label>What Are You Interested In?</label>
+            <select id="cf-interest">
+              <option>Agbada</option><option>Kaftans</option><option>Aso-Oke</option>
+              <option>Suits</option><option>Esiki Rebrand</option>
+              <option>Baggy Pants</option><option>Shoes &amp; Accessories</option>
+              <option>Custom / Unsure</option>
+            </select>
+          </div>
+          <div class="field"><label>Your Message</label><textarea id="cf-message" placeholder="Tell us about the occasion, fabric or fit you have in mind..."></textarea></div>
+          <button type="submit" class="btn btn-solid" style="width:100%;justify-content:center;">Send Via WhatsApp
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo/lockup-white.png" alt="El's Fit Accouter" style="height:44px;width:auto;margin-bottom:18px;">
+      <p>Your go-to choice for maximum elegance. Made-to-order menswear — agbada, kaftans, aso-oke, suits and tailored accessories — from our atelier in Ogbomoso, Oyo State.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/james_el_fit" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="https://wa.me/2348142704877" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/></svg></a>
+        <a href="mailto:odebisijamesolaniyi@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#home" data-link data-view="home">Home</a></li>
+        <li><a href="#about" data-link data-view="about">About</a></li>
+        <li><a href="#shop" data-link data-view="shop">Shop</a></li>
+        <li><a href="#contact" data-link data-view="contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Collections</h5>
+      <ul id="footerCatList"></ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="https://wa.me/2348142704877">+234 814 270 4877</a></li>
+        <li><a href="mailto:odebisijamesolaniyi@gmail.com">odebisijamesolaniyi@gmail.com</a></li>
+        <li><span style="font-size:14px;color:rgba(255,248,245,.6);">Oke Ado, Ogbomoso, Oyo State</span></li>
+        <li><span style="font-size:14px;color:rgba(255,248,245,.6);">Mon – Sat, 9am – 7pm</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> El's Fit Accouter Limited. All rights reserved.</span>
+    <span>Designed with intention.</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348142704877?text=Hello%20El's%20Fit%20Accouter%2C%20I'd%20like%20to%20enquire%20about%20an%20order." target="_blank" rel="noopener" class="float-wa" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/><path d="M8.5 9.2c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.4-.2.2-.3.3-.1.6.2.4.9 1.4 1.9 2.2 1.3 1 2.3 1.3 2.7 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3 0 .2 0 .9-.3 1.4-.3.5-1.5 1.1-2.1 1.1-.6 0-1.9-.1-3.9-1.5-2.4-1.7-3.9-4-4-4.2-.1-.2-.9-1.2-.9-2.3 0-1.1.6-1.6.8-1.9Z" fill="currentColor" stroke="none"/></svg>
+</a>
+
+<!-- ============ PRODUCT MODAL ============ -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box">
+    <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-info">
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="eyebrow" id="modalCat">Category</div>
+      <h3 id="modalTitle">Product Title</h3>
+      <p class="desc" id="modalDesc">Description</p>
+      <div class="price-note">Pricing shared on enquiry — every piece is made to order based on fabric and fit. Online checkout coming soon.</div>
+      <div class="modal-actions">
+        <a href="#" id="modalWhatsapp" target="_blank" rel="noopener" class="btn btn-rust">Enquire On WhatsApp
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 12a8.5 8.5 0 1 1-3.6-6.95L20.5 4l-1.1 3.9A8.46 8.46 0 0 1 20.5 12Z"/></svg>
+        </a>
+        <button class="btn btn-outline" id="modalCustom" style="justify-content:center;">Not Sure Of Your Size?</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================== DATA =========================== */
+const CATEGORIES = [
+  {id:'agbada', name:'Agbada', tagline:'Regal, flowing silhouettes for grand occasions', desc:'A wide-sleeved, three-piece flowing robe cut in premium fabric — the definitive statement piece for weddings, naming ceremonies and festive occasions.', count:4},
+  {id:'kaftans', name:'Kaftans', tagline:'Effortless everyday elegance', desc:'A clean, single-piece kaftan tailored for comfort and structure in equal measure — built for the days that call for smart, unfussy elegance.', count:2},
+  {id:'asooke', name:'Aso-Oke (Male & Female)', tagline:'Heritage weave, for men and women', desc:'Handwoven aso-oke fabric cut into contemporary silhouettes for both men and women — heritage textile, tailored for today.', count:2},
+  {id:'suits', name:'Suits', tagline:'Structured tailoring for the boardroom and beyond', desc:'A precisely cut two-piece suit, fully canvassed and finished by hand for a silhouette that holds its shape all day.', count:2},
+  {id:'esiki', name:'Esiki Rebrand', tagline:'A signature line, reimagined', desc:'Our Esiki line, reworked under the El\'s Fit Accouter standard — distinct pieces that sit alongside our core collections.', count:7},
+  {id:'baggy-pants', name:'Baggy Pants', tagline:'Relaxed tailoring, sharp finish', desc:'Structured yet relaxed-fit trousers — full through the leg, precise at the waist and hem, for a modern, easy silhouette.', count:3},
+  {id:'shoes-accessories', name:'Shoes & Accessories', tagline:'The finishing touches', desc:'Footwear and accessories selected to complete the look — the detail that separates dressed from well-dressed.', count:4},
+];
+
+const products = [];
+CATEGORIES.forEach(cat=>{
+  for(let i=1;i<=cat.count;i++){
+    products.push({
+      id:`${cat.id}-${i}`,
+      catId:cat.id,
+      catName:cat.name,
+      title:`${cat.name} — Style 0${i}`,
+      desc:cat.desc,
+      img:`assets/images/${cat.id}-${i}.jpg`
+    });
+  }
+});
+
+/* =========================== OFF-CANVAS =========================== */
+const offcanvas = document.getElementById('offcanvas');
+const backdrop = document.getElementById('backdrop');
+const burgerBtn = document.getElementById('burgerBtn');
+const offcanvasClose = document.getElementById('offcanvasClose');
+
+function openOffcanvas(){offcanvas.classList.add('open');backdrop.classList.add('open');document.body.style.overflow='hidden';}
+function closeOffcanvas(){offcanvas.classList.remove('open');backdrop.classList.remove('open');document.body.style.overflow='';}
+burgerBtn.addEventListener('click', openOffcanvas);
+offcanvasClose.addEventListener('click', closeOffcanvas);
+backdrop.addEventListener('click', closeOffcanvas);
+
+/* =========================== VIEW / ROUTER =========================== */
+const views = document.querySelectorAll('.view');
+const navLinks = document.querySelectorAll('[data-link]');
+
+function showView(name){
+  views.forEach(v=>v.classList.remove('active'));
+  const target = document.getElementById('view-'+name);
+  if(target) target.classList.add('active');
+  navLinks.forEach(l=>{
+    l.classList.toggle('active', l.dataset.view===name && l.closest('.main-nav'));
+  });
+  window.scrollTo({top:0,behavior:'instant' in window ? 'instant':'auto'});
+  closeOffcanvas();
+  requestAnimationFrame(runReveal);
+}
+
+navLinks.forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const view = link.dataset.view;
+    history.replaceState(null,'','#'+view);
+    showView(view);
+  });
+});
+
+function routeFromHash(){
+  const hash = location.hash.replace('#','') || 'home';
+  const valid = ['home','about','shop','contact'];
+  showView(valid.includes(hash) ? hash : 'home');
+}
+window.addEventListener('hashchange', routeFromHash);
+routeFromHash();
+
+/* =========================== HEADER SCROLL STATE =========================== */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+document.addEventListener('keydown', e=>{if(e.key==='Escape'){closeOffcanvas();closeModal();}});
+
+/* =========================== HOME CATEGORY GRID =========================== */
+const homeCatGrid = document.getElementById('homeCatGrid');
+CATEGORIES.forEach((cat, idx)=>{
+  const card = document.createElement('div');
+  card.className='cat-card';
+  card.innerHTML = `
+    <img src="assets/images/${cat.id}-1.jpg" alt="${cat.name}">
+    <div class="overlay"></div>
+    <div class="cat-info">
+      <div class="eyebrow">0${idx+1} — Collection</div>
+      <h3>${cat.name}</h3>
+      <div class="explore">Explore
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+    </div>`;
+  card.addEventListener('click', ()=>{
+    history.replaceState(null,'','#shop');
+    showView('shop');
+    setTimeout(()=>filterProducts(cat.id),50);
+  });
+  homeCatGrid.appendChild(card);
+});
+
+/* =========================== FOOTER CATEGORY LIST =========================== */
+const footerCatList = document.getElementById('footerCatList');
+CATEGORIES.forEach(cat=>{
+  const li=document.createElement('li');
+  li.innerHTML = `<a href="#shop" data-link data-view="shop">${cat.name}</a>`;
+  footerCatList.appendChild(li);
+});
+footerCatList.querySelectorAll('a').forEach((a,idx)=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    history.replaceState(null,'','#shop');
+    showView('shop');
+    setTimeout(()=>filterProducts(CATEGORIES[idx].id),50);
+  });
+});
+
+/* =========================== SHOP: FILTERS + GRID =========================== */
+const filterRow = document.getElementById('filterRow');
+const productGrid = document.getElementById('productGrid');
+
+function buildFilters(){
+  const allBtn = document.createElement('button');
+  allBtn.className='filter-btn active';
+  allBtn.textContent='All';
+  allBtn.dataset.cat='all';
+  filterRow.appendChild(allBtn);
+  CATEGORIES.forEach(cat=>{
+    const btn = document.createElement('button');
+    btn.className='filter-btn';
+    btn.textContent=cat.name;
+    btn.dataset.cat=cat.id;
+    filterRow.appendChild(btn);
+  });
+  filterRow.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>filterProducts(btn.dataset.cat));
+  });
+}
+buildFilters();
+
+function filterProducts(catId){
+  filterRow.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active', b.dataset.cat===catId));
+  renderProducts(catId);
+}
+
+function renderProducts(catId='all'){
+  productGrid.innerHTML='';
+  const list = catId==='all' ? products : products.filter(p=>p.catId===catId);
+  list.forEach(p=>{
+    const card = document.createElement('div');
+    card.className='product-card';
+    card.innerHTML = `
+      <div class="thumb">
+        <img src="${p.img}" alt="${p.title}" loading="lazy">
+        <div class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      </div>
+      <div class="meta">
+        <div class="eyebrow">${p.catName}</div>
+        <h4>${p.title}</h4>
+        <div class="enquire">Enquire for pricing</div>
+      </div>`;
+    card.addEventListener('click', ()=>openModal(p));
+    productGrid.appendChild(card);
+  });
+}
+renderProducts('all');
+
+/* =========================== PRODUCT MODAL =========================== */
+const modalBackdrop = document.getElementById('modalBackdrop');
+const modalImg = document.getElementById('modalImg');
+const modalCat = document.getElementById('modalCat');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalWhatsapp = document.getElementById('modalWhatsapp');
+const modalClose = document.getElementById('modalClose');
+const modalCustom = document.getElementById('modalCustom');
+
+function openModal(p){
+  modalImg.src = p.img;
+  modalImg.alt = p.title;
+  modalCat.textContent = p.catName;
+  modalTitle.textContent = p.title;
+  modalDesc.textContent = p.desc;
+  const msg = encodeURIComponent(`Hello El's Fit Accouter, I'd like to enquire about the ${p.title} (${p.catName}).`);
+  modalWhatsapp.href = `https://wa.me/2348142704877?text=${msg}`;
+  modalBackdrop.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){modalBackdrop.classList.remove('open');document.body.style.overflow='';}
+modalClose.addEventListener('click', closeModal);
+modalBackdrop.addEventListener('click', e=>{if(e.target===modalBackdrop) closeModal();});
+modalCustom.addEventListener('click', ()=>{
+  window.open("https://wa.me/2348142704877?text=Hello%2C%20I'm%20not%20sure%20of%20my%20measurements%20and%20would%20like%20some%20guidance.","_blank");
+});
+
+/* =========================== CONTACT FORM -> WHATSAPP =========================== */
+document.getElementById('contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  const interest = document.getElementById('cf-interest').value;
+  const message = document.getElementById('cf-message').value.trim();
+  const text = encodeURIComponent(
+    `Hello El's Fit Accouter, my name is ${name} (${phone}).\nI'm interested in: ${interest}.\n${message}`
+  );
+  window.open(`https://wa.me/2348142704877?text=${text}`, '_blank');
+  showToast("Opening WhatsApp with your message...");
+});
+
+function showToast(msg){
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'), 3000);
+}
+
+/* =========================== SCROLL REVEAL =========================== */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+
+function runReveal(){
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el));
+}
+runReveal();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
